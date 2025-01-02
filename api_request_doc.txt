@@ -1,0 +1,120 @@
+User Registration
+Endpoint: /api/users/register/
+Method: POST
+Request Body:
+{
+  "username": "user",
+  "email": "user@example.com",
+  "password": "password"
+}
+
+Token Retrieval
+Endpoint: /api/users/token/
+Method: POST
+Request Body:
+{
+  "username": "user",
+  "password": "password"
+}
+
+Add Product
+Endpoint: /api/products/
+Method: POST
+Request body:
+{
+  "name": "New Product",
+  "description": "Description of the new product",
+  "price": 152.0,
+  "stock_quantity": 36,
+  "category": 2
+}
+
+Product List
+Endpoint: /api/products/
+Method: GET
+Response Example:
+{
+  "id": 1,
+  "category": 1,
+  "name": "Product #1",
+  "description": "Product description #1",
+  "price": 25.5,
+  "discount_price": 25.5,
+  "stock_quantity": 150,
+  "images": [
+       {
+          "id": 1,
+          "image_url": "/media/products/t%C3%A9l%C3%A9chargement_2_7YvVQSh.jpeg",
+          "is_main": true
+        }
+      ],
+  "discounts": [
+    {
+      "id": 1,
+      "product": 1,
+      "percentage": 50.0,
+      "start_date": "2024-12-24T16:27:35Z",
+      "end_date": "2024-12-31T16:27:55Z"
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "rating": 4,
+      "comment": "It's awesome !!",
+      "created_date": "2024-12-24T15:36:25.063709Z",
+      "updated_date": "2024-12-24T15:36:25.063755Z"
+   },
+   ]
+}
+
+
+
+Add Review
+Endpoint: /api/products/<int:pk>/reviews/new/
+Method: POST
+Request Body:
+{
+  "rating": 5,
+  "comment": "Great product!"
+}
+
+Add to Wishlist
+Endpoint: /api/products/<int:pk>/wishlists/add/
+Method: POST
+Response Example:
+{
+  "message": "Product successfully added to wishlist."
+}
+
+View Wishlist
+Endpoint: /api/wishlists/
+Method: GET
+Response Example:
+[
+  {
+    "id": 2,
+    "created_date": "2025-01-02T16:57:38.844463Z",
+    "product": 1,
+    "user": 1
+  }
+]
+
+Add Category
+Endpoint: /api/categories/
+Method: POST
+Request Body:
+{
+  "name": "Category #3",
+  "description": "Category description 3"
+}
+
+Add Discount
+Endpoint: /api/discounts/
+Method: POST
+Request Body:
+{
+  "percentage": 50.0,
+  "start_date": "2024-12-24T16:27:35Z",
+  "end_date": "2024-12-31T16:27:55Z"
+}
