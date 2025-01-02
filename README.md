@@ -53,13 +53,40 @@ The project has the following main directories:
 
 5. Use an API client such as Postman or cURL to test the available endpoints:
 
+   ### User Endpoints
+
    - **User Registration:** `POST /api/users/register/`
-   - **User Login:** `POST /api/users/login/`
+   - **Token Retrieval:** `POST /api/users/token/`
+   - **Token Refresh:** `POST /api/users/token/refresh/`
+
+   ### Product Endpoints
+
    - **Product Management:** `GET/POST/PUT/DELETE /api/products/`
-   - **Category Management:** `GET/POST/PUT/DELETE /api/categories/`
-   - **Wishlist Management:** `GET/POST/DELETE /api/wishlists/`
+   - **Add Review:** `POST /api/products/<int:pk>/reviews/new/`
+   - **Product Reviews:** `GET /api/products/<int:pk>/reviews/`
+
+   ### Review Endpoints
+
+   - **Review List:** `GET /api/reviews/`
+   - **Review Detail:** `GET/PUT/DELETE /api/reviews/<int:pk>/`
+
+   ### Wishlist Endpoints
+
+   - **Add to Wishlist:** `POST /api/products/<int:pk>/wishlists/add/`
+   - **Wishlist Management:** `GET /api/wishlists/`
+   - **Wishlist Detail:** `GET/PUT/DELETE /api/wishlists/<int:pk>/`
+
+   ### Order Endpoints
+
    - **Order Processing:** `GET/POST /api/orders/`
+
+   ### Discount Endpoints
+
    - **Discount Management:** `GET/POST/PUT/DELETE /api/discounts/`
+
+   ### Category Endpoints
+
+   - **Category Management:** `GET/POST/PUT/DELETE /api/categories/`
 
 6. Access the Django Admin panel to manage database entities:
 
