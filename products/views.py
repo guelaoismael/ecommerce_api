@@ -16,7 +16,7 @@ class ProductViewSet(viewsets.ModelViewSet):
   filter_backends = [DjangoFilterBackend, filters.SearchFilter]
   filterset_fields = ['category', 'stock_quantity', 'price']
   search_fields = ['name', 'category__name']
-  permission_classes = [IsAdminOrReadOnly]
+  permission_classes = [permissions.IsAuthenticatedOrReadOnly]
   pagination_class = ProductPagination
   
 
@@ -31,7 +31,7 @@ class CreateReview(generics.CreateAPIView):
   
   queryset = Review.objects.all()
   serializer_class = ReviewSerializer
-  permission_classes = {permissions.IsAuthenticated}
+  permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
   def perform_create(self, serializer):
     pk = self.kwargs.get('pk')

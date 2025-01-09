@@ -33,7 +33,7 @@ class OrderItem(models.Model):
         - Reduce the stock of the associated product.
     """
 
-    if self.product.stock < self.quantity:
+    if self.product.stock_quantity < self.quantity:
       raise ValueError("Not enough stock available")
     
     self.price = self.product.price * self.quantity
